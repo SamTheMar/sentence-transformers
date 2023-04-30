@@ -27,7 +27,7 @@ class Transformer(nn.Module):
         self.do_lower_case = do_lower_case
 
         if peft_model:
-            config = PeftConfig.from_pretrained(model_name_or_path, **model_args, cache_dir=cache_dir)
+            config = PeftConfig.from_pretrained(model_name_or_path, **model_args)
         else :
             config = AutoConfig.from_pretrained(model_name_or_path, **model_args, cache_dir=cache_dir)
         self._load_model(model_name_or_path, config, cache_dir, **model_args)
